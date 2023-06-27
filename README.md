@@ -14,7 +14,7 @@
 ### Service discovery
 
 #### Setting up of service discovery (microservice) with eureka server, with this eureka server we can register all our microesrvices like songs, podcast, playlist.
-#### [service discovery eureka](https://github.com/kishoreravi24/highonmusic-serviceDiscovery)
+#### [high on music service discovery](https://github.com/kishoreravi24/highonmusic-serviceDiscovery)
 
 #### Api gateway(microservice) with spring cloud api gateway, eg: user microservice running on port 8001, playlist on 8002 with api gateway we can run 
 
@@ -37,6 +37,8 @@ API Gateway takes all API requests from a customer, determines which services ar
 8. Error Handling
 9. Logging and monitoring
 10. Analytics
+
+[high on music api gateway](https://github.com/kishoreravi24/highonmusic-apigateway)
 
 ### Load balancer (nginx) 
 Two replica of song service, podcast service, playlist service. Eg: In use of song servive when traffic is high it switches to replica service.
