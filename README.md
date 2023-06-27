@@ -11,9 +11,10 @@
 
 #### This Repo is a microservice contains Service discovery (eureka), ApiGateway (spring cloud api gateway) and loadBalancer (nginx) for the application.
 
-#### Setting up of service discovery with eureka server, with this eureka server we can register all our microesrvices like songs, podcast, playlist.
+#### Setting up of service discovery (microservice) with eureka server, with this eureka server we can register all our microesrvices like songs, podcast, playlist.
+#### [service discovery eureka](https://github.com/kishoreravi24/highonmusic-serviceDiscovery)
 
-#### Api gateway with spring cloud api gateway, eg: user microservice running on port 8001, playlist on 8002 with api gateway we can run 
+#### Api gateway(microservice) with spring cloud api gateway, eg: user microservice running on port 8001, playlist on 8002 with api gateway we can run 
 
 Api gateway:
 
