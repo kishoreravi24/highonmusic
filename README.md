@@ -38,3 +38,8 @@ API Gateway takes all API requests from a customer, determines which services ar
 
 #### Load balancer (nginx) : two replica of song service, podcast service, playlist service. Eg: In use of song servive when traffic is high it switches to replica service.
 
+
+### Application works
+#### [Songs microservice](https://github.com/kishoreravi24/highonmusic-songs) -> Here we have the route and logic + db for the songs used in our high on music application.
+#### [Playlists microservice](https://github.com/kishoreravi24/highonmusic-playlists) -> Here we have the route and logic + db for the playlist used in our high on music application.
+#### [Podcasts microservice](https://github.com/kishoreravi24/highonmusic-podcasts) -> Here we have the route and logic + db for the podcasts used in our high on music application.
