@@ -8,6 +8,10 @@
 
 #### First layer contains, two microservices one is service discovery(eureka server and discovery client) used to register all microservices and we can see which are up and which are down, second is api-gateway(spring cloud api-gateway) to use all services in one instance or all in one use + we have load balancer(netflix ribbon) i can use replica server for each microservices to handle traffic.
 
+#### Second layer contain, application logic users,songs,playlists,podcasts are microservices to use for application need.
+
+#### Third layer, persistance layer DB for user and application.
+
 ### Service discovery
 
 #### Setting up of service discovery (microservice) with eureka server, with this eureka server we can register all our microesrvices like songs, podcast, playlist.
