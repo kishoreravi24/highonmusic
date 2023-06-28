@@ -6,7 +6,7 @@
 ### Architecture
 ![Screenshot 2023-06-28 at 5 28 32 PM](https://github.com/kishoreravi24/highonmusic/assets/36214175/69cc20fc-30a3-4650-a0b2-db99d4a833b5)
 
-#### This Repo is a microservice contains Service discovery (eureka), ApiGateway (spring cloud api gateway) and loadBalancer (nginx) for the application.
+#### First layer contains, two microservices one is service discovery(eureka server and discovery client) used to register all microservices and we can see which are up and which are down, second is api-gateway(spring cloud api-gateway) to use all services in one instance or all in one use + we have load balancer(netflix ribbon) i can use replica server for each microservices to handle traffic.
 
 ### Service discovery
 
