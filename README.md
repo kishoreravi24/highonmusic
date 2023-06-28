@@ -47,5 +47,6 @@ Two replica of song service, podcast service, playlist service. Eg: In use of so
 
 ### Application works
 #### [Songs microservice](https://github.com/kishoreravi24/highonmusic-songs) -> Here we have the route and logic + db for the songs used in our high on music application.
+#### [Song replica microservice](https://github.com/kishoreravi24/highonmusic-songsreplica) -> It is a replica of microservice highonmusic-songs.
 #### [Playlists microservice](https://github.com/kishoreravi24/highonmusic-playlists) -> Here we have the route and logic + db for the playlist used in our high on music application.
 #### [Podcasts microservice](https://github.com/kishoreravi24/highonmusic-podcasts) -> Here we have the route and logic + db for the podcasts used in our high on music application.
