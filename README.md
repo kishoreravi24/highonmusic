@@ -6,8 +6,7 @@
 ### High on Music is an initializr for the ServiceGatewayHub the 3 magic words, Service discovery, api gateway, load balancer.
 
 ### Architecture
-![highonmusic drawio](https://github.com/kishoreravi24/highonmusic/assets/36214175/eb0818de-f539-4518-9c5b-31580b4f6cde)
-
+![Screenshot 2023-06-28 at 5 25 32 PM](https://github.com/kishoreravi24/highonmusic/assets/36214175/3f5a6833-bd9f-43e4-8882-48df001ea23e)
 
 #### This Repo is a microservice contains Service discovery (eureka), ApiGateway (spring cloud api gateway) and loadBalancer (nginx) for the application.
 
@@ -40,7 +39,7 @@ API Gateway takes all API requests from a customer, determines which services ar
 
 [high on music api gateway](https://github.com/kishoreravi24/highonmusic-apigateway)
 
-### Load balancer (nginx) 
+### Load balancer (netflix-ribbon) inside api-gateway 
 Two replica of song service, podcast service, playlist service. Eg: In use of song servive when traffic is high it switches to replica service.
 
 
