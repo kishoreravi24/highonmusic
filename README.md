@@ -3,8 +3,6 @@
 
 ## High on Music , a music streaming application
 
-### High on Music is an initializr for the ServiceGatewayHub the 3 magic words, Service discovery, api gateway, load balancer.
-
 ### Architecture
 ![Screenshot 2023-06-28 at 5 28 32 PM](https://github.com/kishoreravi24/highonmusic/assets/36214175/69cc20fc-30a3-4650-a0b2-db99d4a833b5)
 
