@@ -1,7 +1,11 @@
 ## High on Music , a music streaming application
 
+### Application output
+![Screenshot 2023-07-28 at 2 20 56 PM](https://github.com/kishoreravi24/highonmusic/assets/36214175/0acc4b54-c677-4952-8dd9-ff2c4b27279b)
+
 ### Architecture
-![highonmusic-design](https://github.com/kishoreravi24/highonmusic/assets/36214175/a3df804f-8e3d-4efa-ace0-0ddef98e56fd)
+![Screenshot 2023-07-28 at 2 59 01 PM](https://github.com/kishoreravi24/highonmusic/assets/36214175/931b60d3-ed08-43ca-84a4-e9b61185c858)
+
 
 #### HighonMusic-users
 * Users microservices - [link](https://github.com/kishoreravi24/highonmusic-users)
