@@ -1,52 +1,49 @@
-#### Let me cook.... , stay tuned something big i.e winter is coming 🥶
-
-
 ## High on Music , a music streaming application
 
 ### Architecture
-![Screenshot 2023-06-28 at 5 39 58 PM](https://github.com/kishoreravi24/highonmusic/assets/36214175/4e1b3e53-256f-4fff-879d-ff53716c7ead)
+![highonmusic-design](https://github.com/kishoreravi24/highonmusic/assets/36214175/a3df804f-8e3d-4efa-ace0-0ddef98e56fd)
 
-#### First layer contains, two microservices one is service discovery(eureka server and discovery client) used to register all microservices and we can see which are up and which are down, second is api-gateway(spring cloud api-gateway) to use all services in one instance or all in one use + we have load balancer(netflix ribbon) i can use replica server for each microservices to handle traffic.
+#### HighonMusic-users
+* Users microservices - [link](https://github.com/kishoreravi24/highonmusic-users)
+    * Postgres DB - currently I don't add the support for registering new user features. As an initial work, we are using the username and password as (test), you can check the application resources and DTO and DAO of this microservice for more details about username and password connectivity.
+    * JWT token - For security purpose I added this JWT token got so much information about this do check the JWT service, main feature this generates the JWT token and we can use the token.
 
-#### Second layer contain, application logic users,songs,playlists,podcasts are microservices to use for application need.
+* UI - [link](https://github.com/kishoreravi24/highonmusic-ui)
+    *  React - I created this UI with react and material-ui for css framework, not complex design just normal one, for more details check the apiCall.jsx to see the api calls and other information.
+    *  Passing props - I used useContext for passing props as for the initial version, in future will upgrade to the Redux.
+    *  port - 3000
 
-#### Third layer, persistance layer DB for user and application.
-
-### Service discovery
-
-#### Setting up of service discovery (microservice) with eureka server, with this eureka server we can register all our microesrvices like songs, podcast, playlist.
-#### [high on music service discovery](https://github.com/kishoreravi24/highonmusic-serviceDiscovery)
-
-#### Api gateway(microservice) with spring cloud api gateway, eg: user microservice running on port 8001, playlist on 8002 with api gateway we can run 
-
-### Api gateway
-
-API Gateway takes all API requests from a customer, determines which services are demanded, and combines them into a unified, flawless experience for users. 
-
-* Security for microservices
-* Authentication, monitoring/metrics, and resiliency
-* The client does not know about the internal architecture of our microservices system. The client will not be able to determine the location of the microservice instances.
-* Simplifies client interaction as he will need to access only a single service for all the requirements.
-
-1. parameter validation
-2. Allow list / Deny list
-3. Authentication / Authorization
-4. Rate limit
-5. Dynamic Routing
-6. Portocol conversion - mainly for sending request and response <->
-7. Circuit Breaker
-8. Error Handling
-9. Logging and monitoring
-10. Analytics
-
-[high on music api gateway](https://github.com/kishoreravi24/highonmusic-apigateway)
-
-### Load balancer (netflix-ribbon) inside api-gateway 
-Two replica of song service, podcast service, playlist service. Eg: In use of song servive when traffic is high it switches to replica service.
-
-
-### Application works
-#### [Songs microservice](https://github.com/kishoreravi24/highonmusic-songs) -> Here we have the route and logic + db for the songs used in our high on music application.
-#### [Song replica microservice](https://github.com/kishoreravi24/highonmusic-songsreplica) -> It is a replica of microservice highonmusic-songs.
-#### [Playlists microservice](https://github.com/kishoreravi24/highonmusic-playlists) -> Here we have the route and logic + db for the playlist used in our high on music application.
-#### [Podcasts microservice](https://github.com/kishoreravi24/highonmusic-podcasts) -> Here we have the route and logic + db for the podcasts used in our high on music application.
+* Service Discovery - [link](https://github.com/kishoreravi24/highonmusic-serviceDiscovery)
+    * Setting up of service discovery (microservice) with eureka server, with this eureka server we can register all our microesrvices like songs, podcast, playlist.
+    * Running on port 8671, with this we can see which microservice is up or not, but note: UI is separate from this.
+* Api Gateway - [link](https://github.com/kishoreravi24/highonmusic-apigateway)
+    *  Api gateway(microservice) with spring cloud api gateway, so below microservice runs on different port and different configuration, we need to specify CORS for each so instead , we can addresss all the microservice in Api gateway to use with one port: 5000.
+    *  Eg: song-microservice running on port localhost:8081/songs,localhost:8082/podcasts if we configured this service with api gateway means we can use like localhost:5000/songs,localhost:5000/podcasts.
+    *  We are providing LOAD - BALANCER feature also with spring-cloud-netflix-ribbon
+    ```
+      ribbon:
+        eureka:
+            enabled: true
+        listOfServers: localhost:8081,localhost:8181
+        ServerListRefreshInterval: 1000
+    ```
+##### we are using mongodb database to store songs, currently I didn't add the support for adding the songs, Just done the get part only.
+```
+_id: 64abb8a2428b49e4b16eee69
+audio: "SUQzAwAAAANtK1RJVDIAAAAXAAAAQmFlIC0gTWFzc1RhbWlsYW4uZGV2AFRQRTEAAAAzAA…"
+tag:
+    Array 0:
+    language: "tamil"
+    movie: "Don"
+    name: "Bae"
+    preview: "https://c.saavncdn.com/295/Bae-From-Don--Tamil-2022-20220203163123-500…"
+```
+* Song microservice - [link](https://github.com/kishoreravi24/highonmusic-songs)
+    *  JWT use, we are getting the token to check the user is logged in or not with restTemplate.
+    *  we are getting the songs from the mongodb, for the info please check the application resource.
+* Song-replica microservice - [link](https://github.com/kishoreravi24/highonmusic-songsreplica)
+    * For load balancer use, created this mircroservice running on 8181, replica of the song microservices.
+* Podcasts microservice - [link](https://github.com/kishoreravi24/highonmusic-podcasts)
+    *  same as song microservices, we are using the podcasts db to fetch and this feature is in developing phase.
+* Playlists microservice - [link](https://github.com/kishoreravi24/highonmusic-playlists)
+    *   same as song microservices, we are using the playlists db to fetch and this feature is in developing phase.
